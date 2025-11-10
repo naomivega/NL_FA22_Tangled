@@ -2,6 +2,8 @@
 const int switchPin = 8;
 Servo myservo;
 
+bool hasMoved = false
+
 void setup() {
   // put your setup code here, to run once:
   pinMode(switchPin, INPUT);
@@ -10,12 +12,11 @@ void setup() {
 
 }
 
-void loop() {
+void loop() { //scene 1 banners moving down
   // put your main code here, to run repeatedly:
-  if (digitalRead(switchPin) == HIGH){
-    myservo.write(180);
-  } else {
-    myservo.write(0);
+  if (digitalRead(switchPin) == HIGH&& !hasMoved){
+    myservo.write(90);
+    hasMoved = true;
   }
 
 }

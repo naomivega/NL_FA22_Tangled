@@ -2,7 +2,7 @@
 const int switchPin = 8;
 Servo myservo;
 
-bool hasMoved = false
+bool hasMoved = false;
 
 void setup() {
   // put your setup code here, to run once:

@@ -15,8 +15,12 @@ void setup() {
 void loop() { //scene 1 banners moving down
   // put your main code here, to run repeatedly:
   if (digitalRead(switchPin) == HIGH&& !hasMoved){
-    myservo.write(90);
+
+    for (int pos = 0; pos <= 990; pos++) {
+      myservo.write(90);
+      delay(15);
+    }
+    
     hasMoved = true;
   }
-
 }

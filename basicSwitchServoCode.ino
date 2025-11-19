@@ -73,3 +73,36 @@ if (secondStarted) {
   }
 }
 
+//Scene 4
+// dancing scene, moving left to right, repeating
+  if (scene2Done && !scene3Done && (millis() - scene2FinishTime >= 5000UL)) {
+    int leftPos  = 40;   // tweak these angles for your setup
+    int rightPos = 140;
+
+    // wiggle back and forth 12 times
+    for (int i = 0; i < 12; i++) {
+      servo3.write(leftPos);
+      delay(120);       // smaller delay = faster
+      servo3.write(rightPos);
+      delay(120);
+    }
+
+    // park in the middle
+    servo3.write(90);
+
+    scene3Done = true;
+    scene3FinishTime = millis();
+  }
+//Scene 5
+// Lantern Scene, one slow sweep from right to left, and then stop
+  if (scene3Done && !scene4Done && (millis() - scene3FinishTime >= 5000UL)) {
+    // assume right = 180°, left = 0°
+    for (int pos = 180; pos >= 0; pos--) {
+      servo4.write(pos);
+      delay(40);        // bigger delay = slower movement
+    }
+
+    // stays at 0° (left) and does NOT move again
+    scene4Done = true;
+  }
+}

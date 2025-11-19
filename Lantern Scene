@@ -1,0 +1,12 @@
+ // Lantern Scene, one slow sweep from right to left, and then stop
+  if (scene3Done && !scene4Done && (millis() - scene3FinishTime >= 5000UL)) {
+    // assume right = 180°, left = 0°
+    for (int pos = 180; pos >= 0; pos--) {
+      servo4.write(pos);
+      delay(40);        // bigger delay = slower movement
+    }
+
+    // stays at 0° (left) and does NOT move again
+    scene4Done = true;
+  }
+}
